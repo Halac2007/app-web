@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Input, IconButton } from '@mui/material'
+import { Box, TextField, IconButton } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import '../../App.css'
 
@@ -10,14 +10,30 @@ const Searchs = () => {
   }
 
   return (
-    <>
-      <Box sx={{ zIndex: '9999', position: 'relative' }}>
-        <IconButton size="large" aria-label="display more actions" edge="end" color="default" onClick={clickToggle}>
-          {open === true ? <Input type="text" id="serch-key" placeholder="Nhập nội dung cần tìm"></Input> : ''}
-          <SearchIcon></SearchIcon>
-        </IconButton>
-      </Box>
-    </>
+    <Box>
+      <IconButton size="large" edge="end">
+        <TextField
+          sx={{
+            position: 'absolute',
+            right: 0,
+            zIndex: 1,
+            opacity: open ? 1 : 0,
+            width: open ? '250px' : '50px',
+            transition: 'all .5s',
+            bgcolor: '#444',
+            borderRadius: '5px',
+          }}
+          size="small"
+          type="text"
+          placeholder="Nhập nội dung cần tìm"
+        />
+
+        <SearchIcon
+          onClick={clickToggle}
+          sx={{ zIndex: 2, color: open ? '#fff' : '#333' }}
+        />
+      </IconButton>
+    </Box>
   )
 }
 
