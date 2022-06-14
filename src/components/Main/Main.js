@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { BottomNavigation, Toolbar } from '@mui/material'
+import React from 'react'
+import { BottomNavigation } from '@mui/material'
 const Mains = () => {
   return (
     <>
