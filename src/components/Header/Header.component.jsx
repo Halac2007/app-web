@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { AppBar, Toolbar, Container, IconButton, Box, Popper, Fade } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import MenuLists from './MenuList'
