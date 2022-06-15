@@ -1,13 +1,4 @@
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemText,
-  MenuItem,
-  MenuList,
-  Paper,
-  Stack,
-} from '@mui/material'
+import { Box, Grid, List, ListItem, Stack, Typography } from '@mui/material'
 import '../../App.css'
 
 const categoryMenus = [
@@ -31,16 +22,11 @@ const categoryMenus = [
       {
         childtitle: 'Phân tích',
       },
-    ],
-  },
-  {
-    title: 'Trang chủ',
-    chilren: [
       {
-        childtitle: 'Chi tiết',
+        childtitle: 'Người Việt 4 phương',
       },
       {
-        childtitle: 'Chuyên mục',
+        childtitle: 'Tầm nhìn',
       },
     ],
   },
@@ -52,6 +38,28 @@ const categoryMenus = [
       },
       {
         childtitle: 'Chuyên mục',
+      },
+    ],
+  },
+  {
+    title: 'Trang chủ 1',
+    chilren: [
+      {
+        childtitle: 'Chi tiết 1',
+      },
+      {
+        childtitle: 'Chuyên mục 1',
+      },
+    ],
+  },
+  {
+    title: 'Trang chủ 2',
+    chilren: [
+      {
+        childtitle: 'Chi tiết 2',
+      },
+      {
+        childtitle: 'Chuyên mục 2',
       },
     ],
   },
@@ -81,46 +89,51 @@ const imgcates = [
 ]
 
 const SubMenu = () => {
-  const gettitle = categoryMenus.map((c) => c.chilren.map((s) => s.childtitle))
-  console.log(gettitle)
   return (
     <>
       <Stack>
-        <Paper
+        <Box
           sx={{
             backgroundColor: '#141329',
-            color: '#ddd',
-            maxWidth: '100%',
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              marginLeft: '16%',
-              marginRight: '22%',
-              marginTop: '1%',
-              marginBottom: '1%',
-            }}
+          <Grid
+            container
+            sx={{ color: '#fff', maxWidth: '1050px', margin: 'auto', py: 3 }}
           >
-            <MenuList sx={{ display: 'flex' }}>
-              {categoryMenus.map((m) => (
-                <MenuItem>
-                  {m.title}
-                  <Box>
-                    <MenuList>
-                      {categoryMenus.map((c) =>
-                        c.chilren.map((ch) => (
-                          <ListItem>{ch.childtitle}</ListItem>
-                        ))
-                      )}
-                    </MenuList>
+            {categoryMenus.map((category) => (
+              <Grid item xs={2.4} key={category.title}>
+                <Box
+                  mb={0.5}
+                  sx={{
+                    position: 'relative',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      height: '13px',
+                      width: '5px',
+                      bgcolor: 'red',
+                      top: '5px',
+                      left: '-12px',
+                      transform: 'skew(-25deg)',
+                    },
+                  }}
+                >
+                  <Typography fontWeight={'bold'} color="#ddd">
+                    {category.title}
+                  </Typography>
+                </Box>
+                {category.chilren.map((item) => (
+                  <Box key={item.childtitle}>
+                    <Typography fontSize={'13px'} color="#bbb" lineHeight={2}>
+                      {item.childtitle}
+                    </Typography>
                   </Box>
-                </MenuItem>
-              ))}
-            </MenuList>
-          </Box>
-        </Paper>
+                ))}
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </Stack>
 
       <Box>
@@ -133,7 +146,7 @@ const SubMenu = () => {
           }}
         >
           {imgcates.map((imgcate) => (
-            <ListItem>
+            <ListItem key={imgcate.id}>
               <img src={imgcate.URL} alt="" />
             </ListItem>
           ))}

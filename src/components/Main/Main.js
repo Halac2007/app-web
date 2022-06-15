@@ -1,5 +1,4 @@
-import { BottomNavigation } from '@mui/material'
 const Main = () => {
-  return <BottomNavigation sx={{ height: '70vh' }} />
+  return null
 }
 export default Main

@@ -31,8 +31,8 @@ function Header() {
       position="static"
       sx={{ background: '#fff', borderBottom: '1px solid #ede7f6', height: 50 }}
     >
-      <Container maxWidth="xl">
-        <Toolbar sx={{ marginLeft: 10, marginRight: 10 }}>
+      <Container maxWidth="lg">
+        <Toolbar>
           <Link to="/">
             <img
               src="https://static-znews.zadn.vn/images/logo-zing-home.svg"
