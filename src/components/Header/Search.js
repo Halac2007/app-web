@@ -10,28 +10,24 @@ const Searchs = () => {
   }
 
   return (
-    <Box>
-      <IconButton size="large" edge="end">
-        <TextField
-          sx={{
-            position: 'absolute',
-            right: 0,
-            zIndex: 1,
-            opacity: open ? 1 : 0,
-            width: open ? '250px' : '50px',
-            transition: 'all .5s',
-            bgcolor: '#444',
-            borderRadius: '5px',
-          }}
-          size="small"
-          type="text"
-          placeholder="Nhập nội dung cần tìm"
-        />
-
-        <SearchIcon
-          onClick={clickToggle}
-          sx={{ zIndex: 2, color: open ? '#fff' : '#333' }}
-        />
+    <Box position={'relative'} display="flex" alignItems={'center'}>
+      <TextField
+        sx={{
+          position: 'absolute',
+          right: '-5px',
+          zIndex: 1,
+          opacity: open ? 1 : 0,
+          width: open ? '250px' : '50px',
+          transition: 'all .5s',
+          borderRadius: '5px',
+          bgcolor: '#fff',
+        }}
+        size="small"
+        type="text"
+        placeholder="Nhập nội dung cần tìm"
+      />
+      <IconButton size="large" edge="end" onClick={clickToggle}>
+        <SearchIcon sx={{ zIndex: 2, color: '#333' }} />
       </IconButton>
     </Box>
   )
