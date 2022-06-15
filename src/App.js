@@ -4,6 +4,8 @@ import Header from './components/Header/Header.component'
 import Main from './components/Main/Main'
 
 function App() {
+  console.log(`Render App`)
+
   return (
     <>
       <Header />

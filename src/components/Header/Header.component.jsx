@@ -16,7 +16,7 @@ import MenuLists from './MenuList'
 import Searchs from './Search'
 import SubMenus from './Submenus'
 
-function Header() {
+function Header(props) {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
   const handleClick = (event) => {
