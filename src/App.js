@@ -1,8 +1,8 @@
-import './App.css'
-import Header from './components/Header/Header.component'
-import Footer from './components/Footer/Footer.component'
-import Main from './components/Main/Main'
 import { useEffect, useLayoutEffect } from 'react'
+import './App.css'
+import Footer from './components/Footer/Footer.component'
+import Header from './components/Header/Header.component'
+import Main from './components/Main/Main'
 
 function App() {
   useLayoutEffect(() => {

@@ -1,17 +1,7 @@
-import React from 'react'
-import {
-  Box,
-  ListItemText,
-  MenuItem,
-  MenuList,
-  Paper,
-  Stack,
-  List,
-  ListItem,
-} from '@mui/material'
+import { Box, ListItemText, MenuItem, MenuList } from '@mui/material'
 import '../../App.css'
 
-const catemenus = [
+const categoryMenus = [
   {
     title: 'Xã hội',
     chilren: [
@@ -58,14 +48,14 @@ const catemenus = [
   },
 ]
 
-const SubMenus = () => {
+const SubMenu = () => {
   return (
     <MenuList sx={{ display: 'flex' }}>
-      {catemenus.map((catemenu) => (
+      {categoryMenus.map((catemenu) => (
         <MenuItem>
           {catemenu.title}
           <Box>
-            {catemenus.map((catemenu) => (
+            {categoryMenus.map((catemenu) => (
               <ListItemText>{catemenu.chilren.childtitle}</ListItemText>
             ))}
           </Box>
@@ -75,4 +65,4 @@ const SubMenus = () => {
   )
 }
 
-export default SubMenus
+export default SubMenu
