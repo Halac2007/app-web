@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -7,7 +8,13 @@ const ChuyenMuc = () => {
     console.log(`Lay du lieu tuy theo name ${name}`)
   }, [name])
 
-  return <div>{name}</div>
+  return (
+    <Box>
+      <Box>Chuyên mục {name}</Box>
+      <Box>Chuyên mục con {name}</Box>
+      <Box>Bài viết {name}</Box>
+    </Box>
+  )
 }
 
 export default ChuyenMuc
