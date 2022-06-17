@@ -1,5 +1,4 @@
-import { Box, Grid, Stack, Item, Typography, Breadcrumbs } from '@mui/material'
-import { fontWeight } from '@mui/system'
+import { Box, Grid, Typography } from '@mui/material'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -19,10 +18,10 @@ const ChuyenMuc = () => {
         'https://api.escuelajs.co/api/v1/products?fbclid=IwAR2R8gN288AvUTnAGHr6rhU36vrz1xAF_F7bWgOP83U2RmHSyk_D3qmXc_Q'
       )
       .then((res) => {
-        const data = res.data.slice(0, 4).map((item) => ({
+        const data = res.data.slice(0, 11).map((item) => ({
           title: item.title,
           sapo: item.description,
-          image: item.images[0],
+          image: item.images[0] || item.category.image,
         }))
         setCates(data)
       })
@@ -70,29 +69,31 @@ const ChuyenMuc = () => {
           sx={{ paddingBottom: '20px', marginBottom: '20px' }}
         >
           <Grid item xs={8}>
-            <img src={cates[3]?.image} width="100%" height="426px" alt="" />
-            <Box sx={{ typography: 'h4', textAlign: 'center' }}>
-              {cates[3]?.title}
-            </Box>
-            <Box sx={{ color: '#888', textAlign: 'center' }}>
-              {cates[3]?.sapo}
-            </Box>
+            {cates.slice(0, 1).map((item) => (
+              <Box key={item.title}>
+                <img src={item.image} width="100%" height="426px" alt="" />
+                <Box sx={{ typography: 'h4', textAlign: 'center' }}>
+                  {item.title}
+                </Box>
+                <Box sx={{ color: '#888', textAlign: 'center' }}>
+                  {item.sapo}
+                </Box>
+              </Box>
+            ))}
           </Grid>
 
-          <Grid item xs={4} container spacing={4}>
-            <Grid item xs={12}>
-              <img src={cates[0]?.image} width="100%" height="212px" alt="" />
-              <Box sx={{ fontWeight: 'bold' }}>{cates[0]?.title}</Box>
-            </Grid>
-            <Grid item xs={12}>
-              <img src={cates[2]?.image} width="100%" height="212px" alt="" />
-              <Box sx={{ fontWeight: 'bold' }}>{cates[2]?.title}</Box>
-            </Grid>
+          <Grid item xs={4}>
+            {cates.slice(1, 3).map((item) => (
+              <Box key={item.title}>
+                <img src={item.image} width="100%" height="212px" alt="" />
+                <Box sx={{ fontWeight: 'bold' }}>{item.title}</Box>
+              </Box>
+            ))}
           </Grid>
         </Grid>
 
         <Grid container spacing={2} sx={{ borderTop: '1px solid #eee' }}>
-          {cates.map((item) => (
+          {cates.slice(3, 7).map((item) => (
             <Grid key={item.id} item xs={3}>
               <img src={item.image} width="100%" height="156px" alt="" />
               <Box>{item.title}</Box>
@@ -124,7 +125,7 @@ const ChuyenMuc = () => {
             XUẤT BẢN
           </Typography>
           <Grid container spacing={2} sx={{ borderTop: '1px solid #eee' }}>
-            {cates.map((itemtwo) => (
+            {cates.slice(7, 11).map((itemtwo) => (
               <Grid key={itemtwo.id} item xs={3}>
                 <img src={itemtwo.image} width="100%" height="156px" alt="" />
                 <Box>{itemtwo.title}</Box>
