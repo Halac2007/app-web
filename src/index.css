@@ -6,3 +6,8 @@ a {
 ::-webkit-scrollbar {
   width: 0;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  color: red !important;
+}
