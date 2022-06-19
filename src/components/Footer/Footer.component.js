@@ -9,6 +9,9 @@ const links = [
   { idlink: 3, titlelink: 'Quảng cáo', url: '/quang-cao' },
 ]
 
+const data = links.map((l) => l.titlelink)
+console.log(data)
+
 const infowebs = [
   { id: 1, title: 'Tạp chí điện tử Tri thức trực tuyến' },
   { id: 2, title: 'Cơ quan chủ quản: Hội Xuất bản Việt Nam' },
