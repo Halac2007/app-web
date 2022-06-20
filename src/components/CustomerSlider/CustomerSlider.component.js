@@ -1,8 +1,7 @@
 import { Box } from '@mui/material'
 import Slider from 'react-slick'
 
-const CustomerSlider = (props) => {
-  console.log(props.posts)
+const CustomerSlider = ({ posts }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -26,7 +25,7 @@ const CustomerSlider = (props) => {
   }
   return (
     <Slider {...settings}>
-      {props.posts.map((post) => (
+      {posts.map((post) => (
         <Box key={post.id} px={1}>
           <img
             src={post.image}
