@@ -12,7 +12,7 @@ function App() {
   console.log(matches)
   return (
     <>
-      <Grid
+      {/* <Grid
         container
         spacing={2}
         bgcolor={{ xs: 'red', sm: 'blue', md: 'green' }}
@@ -37,7 +37,7 @@ function App() {
             </Paper>
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
       <Header />
       <Main />
       <Footer />

@@ -8,7 +8,6 @@ import OaPost from '../components/Posts/OaPost.component'
 import SidePosts from '../components/Posts/SidePost.component'
 import CustomerSlider from '../components/CustomerSlider/CustomerSlider.component'
 import TopTile from '../components/TopTitle/TopTile.component'
-
 import { menuHeads } from '../utils'
 
 const ChuyenMuc = () => {
