@@ -3,10 +3,24 @@ import { Box } from '@mui/system'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const Home = ({ mainpost }) => {
+const headMedium = [
+  {
+    id: '1',
+    title: 'MULTIMEDIA',
+    child: [
+      { id: '1', titlechild: 'Video' },
+      { id: '2', titlechild: 'PODCAST' },
+      { id: '3', titlechild: ' LONGFORM' },
+      { id: '4', titlechild: ' STORY' },
+    ],
+  },
+]
+
+const Home = () => {
   const [dataLeft, setdataLeft] = useState([])
   const [dataTop, setdataTop] = useState([])
   const [dataRight, setdataRight] = useState([])
+  const [dataBox, setdataBox] = useState([])
   const urlleft = `https://duy-boe-api.herokuapp.com/xuat-ban`
   const urltop = `https://duy-boe-api.herokuapp.com/the-gioi`
   const urlright = `https://duy-boe-api.herokuapp.com/xa-hoi`
@@ -20,6 +34,7 @@ const Home = ({ mainpost }) => {
       }))
 
       setdataLeft(data.slice(1, 6))
+      setdataBox(data.slice(1, 5))
     })
   }, [])
 
@@ -84,17 +99,42 @@ const Home = ({ mainpost }) => {
           ))}
         </Grid>
       </Grid>
-      <Grid container maxWidth="1000px" m="auto">
+      <Grid
+        container
+        maxWidth="1000px"
+        m="auto"
+        p="10px"
+        sx={{ backgroundColor: '#ffde76', padding: '20px' }}
+      >
+        <Grid xs={12} display="flex" m="2px">
+          {headMedium.map((item) => (
+            <>
+              <Typography key={item.id} marginLeft="12px">
+                {item.title}
+              </Typography>
+              {item.child.map((m) => (
+                <Typography key={m.id} marginLeft="12px">
+                  {m.titlechild}
+                </Typography>
+              ))}
+            </>
+          ))}
+        </Grid>
         <Grid item xs={6}>
-          sdfsdfs
+          {dataTop.map((item) => (
+            <Box key={item.id}>
+              <img src={item.image} alt="" height="350px" />
+              <Typography>{item.title}</Typography>
+            </Box>
+          ))}
         </Grid>
         <Grid item container xs={6}>
-          <Grid item xs={6}>
-            sadas
-          </Grid>
-          <Grid item xs={6}>
-            sfdsf
-          </Grid>
+          {dataBox.map((item) => (
+            <Grid key={item.id} item xs={6}>
+              <img src={item.image} alt="" height="170px" />
+              <Typography>{item.title}</Typography>
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </>
