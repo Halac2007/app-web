@@ -10,7 +10,6 @@ const links = [
 ]
 
 const data = links.map((l) => l.titlelink)
-console.log(data)
 
 const infowebs = [
   { id: 1, title: 'Tạp chí điện tử Tri thức trực tuyến' },
